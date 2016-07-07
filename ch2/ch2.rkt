@@ -46,6 +46,4 @@
 
 (Fahrenheit->Celsius 108)
 
-(convert-gui Fahrenheit->Celsius)
-
 
