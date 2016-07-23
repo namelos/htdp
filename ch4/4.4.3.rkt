@@ -42,3 +42,47 @@
 (= (tax 481)
    (* 481
       (tax-rate 481)))
+
+;; weekly-wage : number -> number
+(define hourly-wage 12)
+
+(define (weekly-wage hours)
+  (* hours hourly-wage))
+
+(= (weekly-wage 0)
+   0)
+
+(= (weekly-wage 40)
+   (* 40 hourly-wage))
+
+(= (weekly-wage 100)
+   (* 100 hourly-wage))
+
+;; net-pay : number -> number
+(define (net-pay hours)
+  (let
+      ((pay (weekly-wage hours)))
+    (- pay
+       (tax pay))))
+
+(= (net-pay 0)
+   0)
+
+(= (net-pay 10)
+   (let
+       ((pay (weekly-wage 10)))
+     (- pay
+        (tax pay))))
+
+(= (net-pay 40)
+   (let
+       ((pay (weekly-wage 40)))
+     (- pay
+        (tax pay))))
+
+(= (net-pay 80)
+   (let
+       ((pay (weekly-wage 80)))
+     (- pay
+        (tax pay))))
+
